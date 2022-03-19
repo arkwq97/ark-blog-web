@@ -47,7 +47,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 import AppChip from '@/components/core/AppChip.vue'
-import router from '@/router';
+import router from '@/router'
 
 interface Article {
   _id: string

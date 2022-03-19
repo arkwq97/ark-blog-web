@@ -13,3 +13,10 @@ export function getArticleList(page: number) {
     method: 'get'
   })
 }
+
+export function getArticle(id: string) {
+  return request({
+    url: `/articles/${id}`,
+    method: 'get'
+  })
+}

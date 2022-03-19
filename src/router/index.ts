@@ -9,13 +9,21 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/article/:id',
     name: 'article',
-    component: () => import('../views/ArticleView.vue')
+    component: () => import('../views/ArticleView.vue'),
+    props: true
   }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router
