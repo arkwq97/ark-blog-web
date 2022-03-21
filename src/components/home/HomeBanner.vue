@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 const title = ref(`Ark's Blog`)
 const slogan = ref(`人们总说时间会改变一切，但事实上你得自己来`)
 </script>
@@ -53,7 +53,7 @@ const slogan = ref(`人们总说时间会改变一切，但事实上你得自己
   position: absolute;
   width: 100%;
   height: 400px;
-  background-image: url('@/assets/pictures/ark.jpg');
+  background-image: url('https://ark-blog-resource-1252728286.cos.ap-guangzhou.myqcloud.com/ark.jpg');
   background-size: cover;
 }
 

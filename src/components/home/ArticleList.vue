@@ -4,6 +4,16 @@
     <v-col cols="12">
       <slot></slot>
     </v-col>
+    <v-col
+      cols="12"
+      v-if="!articleList.arr.length"
+    >
+      <v-card >
+        <v-card-header-text>
+          <v-card-title>暂无相关文章，请清空搜索框</v-card-title>
+        </v-card-header-text>
+      </v-card>
+    </v-col>
     <article-card
       v-for="(article, i) in articleList.arr"
       :key="article._id"
@@ -27,26 +37,25 @@
 import { onMounted, reactive, ref } from 'vue'
 import ArticleCard from '@/components/home/ArticleCard.vue'
 import { getArticleCount, getArticleList } from '@/api/articles'
-
-interface Article {
-  _id: string
-  title: string
-  author: string
-  type: string
-  category: string
-  poster: string
-  createdAt: string
-  introduction: string
-  viewCount: number
-}
+import mitter from '@/mitt/index'
 
 const page = ref(1)
 const pageLen = ref(0)
 
 const articleList = reactive({
-  arr: new Array<Article>()
+  arr: new Array<{
+    _id: string
+    title: string
+    author: string
+    type: string
+    category: string
+    poster: string
+    createdAt: string
+    introduction: string
+    viewCount: number
+  }>()
 })
-const layout = [2, 2, 1, 2, 2, 3, 3, 3, 3, 3, 3]
+const layout = [2, 2, 1, 2, 2, 3, 3, 3]
 
 onMounted(() => {
   getArticleCount().then(res => {
@@ -54,6 +63,14 @@ onMounted(() => {
   })
   getArticleList(page.value).then(res => {
     articleList.arr = res.data
+  })
+  mitter.on('searchArticle', searchKey => {
+    getArticleCount(String(searchKey)).then(res => {
+      pageLen.value = Math.ceil(res.data / 8)
+    })
+    getArticleList(page.value, String(searchKey)).then(res => {
+      articleList.arr = res.data
+    })
   })
 })
 </script>

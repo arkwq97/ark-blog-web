@@ -6,6 +6,15 @@
       width="100%"
       class="text-center"
     >
+
+      <v-card-header-text class="text-left">
+        <v-card-title>
+          关于
+        </v-card-title>
+        <v-card-subtitle>
+          计科专业，热爱编程，喜欢技术，记录学习。
+        </v-card-subtitle>
+      </v-card-header-text>
       <v-card-text>
         <v-btn
           v-for="icon in icons"
@@ -29,8 +38,6 @@
 
 <script setup lang="ts">
 const icons: Array<string> = [
-  'mdi-qqchat',
-  'mdi-wechat',
   'mdi-github'
 ]
 </script>

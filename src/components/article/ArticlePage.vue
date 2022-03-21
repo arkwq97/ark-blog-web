@@ -40,7 +40,7 @@ onMounted(() => {
 </script>
 
 <style lang="less">
-@import '@/common/css/markdown.css';
+@import '@/assets/styles/markdown.less';
 .article-page {
   min-height: 650px;
 }
