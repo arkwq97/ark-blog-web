@@ -12,17 +12,18 @@
           关于
         </v-card-title>
         <v-card-subtitle>
-          计科专业，热爱编程，喜欢技术，记录学习。
+          97年，武汉轻工大学CS，喜欢技术，记录学习，希望自己可以让这个世界更加美好。
         </v-card-subtitle>
       </v-card-header-text>
       <v-card-text>
         <v-btn
-          v-for="icon in icons"
-          :key="icon"
-          :icon="icon"
+          href="https://github.com/arkwq97"
+          target="_blank"
+          icon="mdi-github"
           class="mx-4"
           variant="text"
           size="x-large"
+
         ></v-btn>
       </v-card-text>
 
@@ -35,9 +36,3 @@
     </v-card>
   </v-footer>
 </template>
-
-<script setup lang="ts">
-const icons: Array<string> = [
-  'mdi-github'
-]
-</script>
