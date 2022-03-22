@@ -4,11 +4,13 @@
       <v-col md="9">
         <v-card class="article-page">
           <v-card-header-text>
-            <v-card-title>JavaScript笔记 “作用域和闭包”</v-card-title>
-            <v-card-subtitle>Arkwq</v-card-subtitle>
-            <v-card-subtitle>最后更新时间：1997-09-06</v-card-subtitle>
+            <v-card-title>{{ article.title }}</v-card-title>
+            <v-card-subtitle>{{ article.author }}</v-card-subtitle>
+            
+            <v-card-subtitle>最后更新时间：{{ article.updatedAt }}</v-card-subtitle>
           </v-card-header-text>
           <v-card-text v-html="articleMD" class="markdown-body"></v-card-text>
+          <v-card-subtitle>发布于：{{ article.createdAt }}</v-card-subtitle>
         </v-card>
       </v-col>
     </v-row>
@@ -25,6 +27,10 @@ const props = defineProps<{
 }>()
 
 let article = reactive({
+  title: '',
+  author:'',
+  createdAt: '',
+  updatedAt:'',
   content: ''
 })
 
@@ -33,6 +39,10 @@ const md = new MarkdownIt()
 
 onMounted(() => {
   getArticle(props.id).then(res => {
+    article.title = res.data.title
+    article.author = res.data.author
+    article.createdAt = res.data.createdAt
+    article.updatedAt = res.data.updatedAt
     article.content = res.data.content
     articleMD.value = md.render(article.content)
   })

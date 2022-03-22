@@ -10,7 +10,7 @@
     >
       <v-card >
         <v-card-header-text>
-          <v-card-title>暂无相关文章，请清空搜索框</v-card-title>
+          <v-card-title>暂无相关文章，请清空搜索框。</v-card-title>
         </v-card-header-text>
       </v-card>
     </v-col>
@@ -47,12 +47,11 @@ const articleList = reactive({
     _id: string
     title: string
     author: string
-    type: string
     category: string
     poster: string
     createdAt: string
     introduction: string
-    viewCount: number
+    readCount: number
   }>()
 })
 const layout = [2, 2, 1, 2, 2, 3, 3, 3]

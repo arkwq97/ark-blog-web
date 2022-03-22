@@ -1,7 +1,6 @@
 import axios from 'axios'
 
-//const testBaseURL = 'http://120.79.160.95:8080';
-const baseURl = 'http://localhost:3000'
+const baseURl = process.env.VUE_APP_SERVER_BASE_URL
 
 const service = axios.create({
   baseURL: baseURl,

@@ -10,7 +10,7 @@
       rounded="0"
     >
       <v-img
-        :src="require('@/assets/pictures/sky.jpg')"
+        :src="article.poster"
         height="100%"
         cover
       >
@@ -19,7 +19,7 @@
         >
           <v-col cols="12">
             <app-chip class="mb-2 text-uppercase font-weight-light">
-              {{ article.type }}
+              {{ article.category }}
             </app-chip>
 
             <h3 class="title mb-2 font-weight-light">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="text-body-2 font-weight-light">
-              <v-icon>mdi-eye</v-icon>{{ article.viewCount }} 
+              <v-icon small left>mdi-eye</v-icon>{{ article.readCount }} 
             </div>
           </v-col>
           <v-col>
@@ -55,12 +55,11 @@ const props = defineProps<{
     _id: string
     title: string
     author: string
-    type: string
     category: string
     poster: string
     createdAt: string
     introduction: string
-    viewCount: number
+    readCount: number
   }
   size: number
 }>()
