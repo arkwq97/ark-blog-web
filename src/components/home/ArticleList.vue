@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import ArticleCard from '@/components/home/ArticleCard.vue'
 import { getArticleCount, getArticleList } from '@/api/articles'
 import mitter from '@/mitt/index'
@@ -56,9 +56,15 @@ const articleList = reactive({
 })
 const layout = [2, 2, 1, 2, 2, 3, 3, 3]
 
+watch(page, (value, oldValue) => {
+  getArticleList(page.value).then(res => {
+    articleList.arr = res.data
+  })
+})
+
 onMounted(() => {
   getArticleCount().then(res => {
-    pageLen.value = Math.ceil(res.data / 11)
+    pageLen.value = Math.ceil(res.data / 8)
   })
   getArticleList(page.value).then(res => {
     articleList.arr = res.data

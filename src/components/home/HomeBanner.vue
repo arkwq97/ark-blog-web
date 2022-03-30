@@ -104,7 +104,7 @@ const slogan = ref(`人们总说时间会改变一切，但事实上你得自己
 }
 
 .banner-title {
-  font: 400 40px '';
+  font: 400 40px ' ';
   text-align: center;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -115,7 +115,7 @@ const slogan = ref(`人们总说时间会改变一切，但事实上你得自己
 .banner-slogan {
   opacity: 0;
   filter: blur(15px);
-  font: 200 22px '';
+  font: 200 22px ' ';
   user-select: none;
   color: white;
   transition: 0.4s;

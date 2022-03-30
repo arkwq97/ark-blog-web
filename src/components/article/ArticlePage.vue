@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-btn
+      icon="mdi-keyboard-backspace"
+      position="fixed"
+      @click="goHome"
+    >
+    </v-btn>
     <v-row justify="center">
       <v-col md="9">
         <v-card class="article-page">
@@ -10,7 +16,7 @@
             <v-card-subtitle>最后更新时间：{{ article.updatedAt }}</v-card-subtitle>
           </v-card-header-text>
           <v-card-text v-html="articleMD" class="markdown-body"></v-card-text>
-          <v-card-subtitle>发布于：{{ article.createdAt }}</v-card-subtitle>
+          <v-card-text>发布于：{{ article.createdAt }}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -21,6 +27,7 @@
 import { reactive, defineProps, onMounted, ref } from 'vue'
 import MarkdownIt from 'markdown-it'
 import { getArticle } from '@/api/articles'
+import router from '@/router'
 
 const props = defineProps<{
   id: string
@@ -36,6 +43,12 @@ let article = reactive({
 
 const articleMD = ref('')
 const md = new MarkdownIt()
+
+function goHome() {
+  router.push({
+    path: '/'
+  })
+}
 
 onMounted(() => {
   getArticle(props.id).then(res => {
