@@ -32,6 +32,8 @@
       <v-card-text class="text-white">
         {{ new Date().getFullYear() }} -
         <span style="font-family: Lucida Handwriting">ARK</span>
+        <br>
+        <a href="https://beian.miit.gov.cn" target="_blank" style="color: white;">桂ICP备2022002675号</a>
       </v-card-text>
     </v-card>
   </v-footer>
