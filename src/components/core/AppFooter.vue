@@ -6,13 +6,12 @@
       width="100%"
       class="text-center"
     >
-
       <v-card-header-text class="text-left">
         <v-card-title>
           关于
         </v-card-title>
         <v-card-subtitle>
-          97年，武汉轻工大学CS，喜欢技术，记录学习，希望自己可以让这个世界更加美好。
+          暂无
         </v-card-subtitle>
       </v-card-header-text>
       <v-card-text>
@@ -23,7 +22,6 @@
           class="mx-4"
           variant="text"
           size="x-large"
-
         ></v-btn>
       </v-card-text>
 

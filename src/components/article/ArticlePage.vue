@@ -12,7 +12,6 @@
           <v-card-header-text>
             <v-card-title>{{ article.title }}</v-card-title>
             <v-card-subtitle>{{ article.author }}</v-card-subtitle>
-            
             <v-card-subtitle>最后更新时间：{{ article.updatedAt }}</v-card-subtitle>
           </v-card-header-text>
           <v-card-text v-html="articleMD" class="markdown-body"></v-card-text>

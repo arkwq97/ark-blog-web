@@ -4,24 +4,30 @@
       class="mx-4"
       vertical
     ></v-divider>
-    <v-app-bar-title tag="h1"><span class="blog-title" @click="goHome">Ark Blog</span></v-app-bar-title>
-      <v-col
-        cols="12"
-        sm="6"
-        md="3"
-      >
-        <v-text-field
-          density="comfortable"
-          variant="contained"
-          prepend-inner-icon="mdi-magnify"
-          single-line
-          clearable
-          v-model="searchKey"
-          placeholder="搜索(按 回车)"
-          @keyup.enter="searchArticle"
-          @click:clear="searchArticle"
-        ></v-text-field>
-      </v-col>
+    <v-app-bar-title tag="h1">
+      <span class="blog-title" @click="goHome">Ark Blog</span>
+    </v-app-bar-title>
+    <v-col
+      cols="12"
+      sm="6"
+      md="3"
+    >
+      <Transition name="fade">
+         <v-text-field
+            v-if="$route.meta.searchIsShow"
+            density="comfortable"
+            variant="contained"
+            prepend-inner-icon="mdi-magnify"
+            single-line
+            clearable
+            v-model="searchKey"
+            placeholder="搜索(按 回车)"
+            @keyup.enter="searchArticle"
+            @click:clear="searchArticle"
+            transition="scale-transition"
+          ></v-text-field>
+      </Transition>
+    </v-col>
     <v-btn
       icon="mdi-heart-outline"
       @click="like()"
@@ -86,5 +92,15 @@ function searchArticle() {
 
 .like-btn {
   transition: 1s;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

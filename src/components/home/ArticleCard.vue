@@ -31,7 +31,7 @@
             </div>
 
             <div class="text-body-2 font-weight-light">
-              <v-icon small left>mdi-eye</v-icon>{{ article.readCount }} 
+              <v-icon small left>mdi-eye</v-icon>{{ article.readCount }}
             </div>
           </v-col>
           <v-col>
@@ -49,18 +49,10 @@
 import { defineProps } from 'vue'
 import AppChip from '@/components/core/AppChip.vue'
 import router from '@/router'
+import { Article } from './data'
 
 const props = defineProps<{
-  article: {
-    _id: string
-    title: string
-    author: string
-    category: string
-    poster: string
-    createdAt: string
-    introduction: string
-    readCount: number
-  }
+  article: Article
   size: number
 }>()
 

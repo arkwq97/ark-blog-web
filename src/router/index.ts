@@ -4,6 +4,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
+    meta: {
+      searchIsShow: true
+    },
     component: () => import('../views/HomeView.vue')
   },
   {
